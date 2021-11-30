@@ -14,23 +14,37 @@ import java.util.List ;
  *
  * @author Fabio Tran
  * @version 1.0.0 2021-11-18 Initial implementation
+ * 
+ * @author Tim Magee
+ * @version 1.1.0 2021-11-30 Added one-arg constructor
  */
 public class Pile
     {
 
     // array-list used to store pile of cards
-    final protected List<Card> pile ;
+    final protected ArrayList<Card> pile ;
 
     /**
      * no-arg constructor
+     * used for piles of a default size of 108
+     * mainly for Deck
      */
     protected Pile()
         {
         // capacity is chosen because a deck of UNO has at most 108 cards
-        this.pile = new ArrayList<>( 108 ) ;
+        this( 108 ) ;
 
         } // end no-arg constructor
-
+    
+	/**
+	 * one-arg constructor
+	 * used when the starting size of a pile needs to be specified
+	 * @param initialSize - size of the Pile when created
+	 */
+    protected Pile(int initialSize)
+    {
+    	this.pile = new ArrayList<>(initialSize);
+    }
 
     /**
      * Adds a card to the pile
